@@ -25,4 +25,9 @@ public class Matematico extends Investigador {
             return "El sueldo del matematico esta bien";
         }
     }
+
+    @Override
+    public void trabajar() {
+        System.out.println("El matematico trabaja siempre con matrices 3x3.");
+    }
 }
