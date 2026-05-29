@@ -36,4 +36,10 @@ public abstract class Investigador {
         this.sueldo = sueldo;
     }
 
+    public void identificacion() {
+        System.out.println("--- Datos del investigador ---");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Especialidad: " + especialidad);
+        System.out.println("Sueldo: " + sueldo);
+    }
 }
