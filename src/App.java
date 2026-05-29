@@ -35,227 +35,21 @@ public class App {
 
         do {
             try {
-
-                System.out.println("--- SEDE DE INVESTIGADORES ---");
-                System.out.println("Selecciona un investigador:");
-
-                for (int i = 0; i < investigadores.length; i++) {
-                    System.out.println((i + 1) + "º " + investigadores[i].getNombre());
-                }
-
-                System.out.println("0. Salir");
-                System.out.println("Elige una opcion: ");
-                opcionInvestigador = scanner.nextInt();
+                opcionInvestigador = mostrarMenuPrincipal(scanner, investigadores);
                 scanner.nextLine();
 
                 switch (opcionInvestigador) {
 
                     case 1:
-
-                        int opcionMatematico;
-
-                        do {
-                            System.out.println("--- MENU MATEMATICO ---");
-                            System.out.println("1. Identificacion");
-                            System.out.println("2. Hacer calculo basico");
-                            System.out.println("3. Ver estado del sueldo");
-                            System.out.println("4. Multiplicar matriz por un numero");
-                            System.out.println("5. Sumar matriz 3x3");
-                            System.out.println("6. Mostrar matriz");
-                            System.out.println("0. Volver");
-                            System.out.println("Elige una opcion: ");
-                            opcionMatematico = scanner.nextInt();
-                            scanner.nextLine();
-
-                            switch (opcionMatematico) {
-
-                                case 1:
-                                    matematico.identificacion();
-                                    break;
-                                
-                                case 2:
-                                    System.out.println("Introduce el primer numero: ");
-                                    int numero1 = scanner.nextInt();
-                                    scanner.nextLine();
-                                    System.out.println("Introduce el segundo numero: ");
-                                    int numero2 = scanner.nextInt();
-                                    scanner.nextLine();
-                                    matematico.hacerCalculoBasico(numero1, numero2);
-                                    break;
-                                
-                                case 3:
-                                    System.out.println(matematico.estadoSueldo());
-                                    break;
-                                
-                                case 4:
-                                    System.out.println("Introduce el numero por el que quieres multiplicar la matriz: ");
-                                    int multiplicador = scanner.nextInt();
-                                    scanner.nextLine();
-                                    matematico.trabajar(multiplicador);
-                                    break;
-                                
-                                case 5:
-                                    int[][] matrizNueva = new int[3][3];
-
-                                    for (int i = 0; i < matrizNueva.length; i++) {
-                                        for (int j = 0; j < matrizNueva[i].length; j++) {
-                                            System.out.println("Introduce el valor de la posicion [" + i + "][" + j + "]: ");
-                                            matrizNueva[i][j] = scanner.nextInt();
-                                        }
-                                    }
-
-                                    scanner.nextLine();
-                                    matematico.trabajar(matrizNueva);
-                                    break;
-                                
-                                case 6:
-                                    matematico.mostrarMatriz();
-                                    break;
-                                
-                                case 0:
-                                    System.out.println("Volviendo al menu principal.");
-                                    break;
-                                
-                                default:
-                                    break;
-
-                            }
-
-                        } while (opcionMatematico != 0);
+                        menuMatematico(scanner, matematico);
                         break;
                     
                     case 2:
-                        int opcionBiologo;
-
-                        do {
-                            System.out.println("--- MENU BIOLOGO ---");
-                            System.out.println("1. Identificacion");
-                            System.out.println("2. Hacer calculo basico");
-                            System.out.println("3. Ver estado del sueldo");
-                            System.out.println("4. Anadir especimen");
-                            System.out.println("5. Trabajar");
-                            System.out.println("6. Trabajo dual");
-                            System.out.println("7. Mostrar especimenes");
-                            System.out.println("0. Volver");
-                            System.out.println("Elige una opcion: ");
-                            opcionBiologo = scanner.nextInt();
-                            scanner.nextLine();
-
-                            switch (opcionBiologo) {
-                                case 1:
-                                    biologo.identificacion();
-                                    break;
-
-                                case 2:
-                                    System.out.println("Introduce el primer numero: ");
-                                    int numero1Biologo = scanner.nextInt();
-                                    System.out.println("Introduce el segundo numero: ");
-                                    int numero2Biologo = scanner.nextInt();
-                                    scanner.nextLine();
-                                    biologo.hacerCalculoBasico(numero1Biologo, numero2Biologo);
-                                    break;
-
-                                case 3:
-                                    System.out.println(biologo.estadoSueldo());
-                                    break;
-
-                                case 4:
-                                    System.out.println("Introduce el especimen: ");
-                                    String especimen = scanner.nextLine();
-                                    biologo.anadirEspecimen(especimen);
-                                    break;
-
-                                case 5:
-                                    biologo.trabajar();
-                                    break;
-
-                                case 6:
-                                    biologo.trabajoDual();
-                                    break;
-
-                                case 7:
-                                    biologo.mostrarEspecimenes();
-                                    break;
-
-                                case 0:
-                                    System.out.println("Volviendo al menu principal.");
-                                    break;
-
-                                default:
-                                    System.out.println("Opcion incorrecta.");
-                                    break;
-                            }
-
-                            System.out.println();
-
-                        } while (opcionBiologo != 0);
+                        menuBiologo(scanner, biologo);
                         break;
                     
                     case 3:
-                        int opcionQuimico;
-
-                        do {
-                            System.out.println("--- MENU QUIMICO ---");
-                            System.out.println("1. Identificacion");
-                            System.out.println("2. Hacer calculo basico");
-                            System.out.println("3. Ver estado del sueldo");
-                            System.out.println("4. Anadir elemento");
-                            System.out.println("5. Trabajar");
-                            System.out.println("6. Trabajo dual");
-                            System.out.println("7. Mostrar elementos");
-                            System.out.println("0. Volver");
-                            System.out.println("Elige una opcion: ");
-                            opcionQuimico = scanner.nextInt();
-                            scanner.nextLine();
-
-                            switch (opcionQuimico) {
-                                case 1:
-                                    quimico.identificacion();
-                                    break;
-
-                                case 2:
-                                    System.out.println("Introduce el primer numero: ");
-                                    int numero1Quimico = scanner.nextInt();
-                                    System.out.println("Introduce el segundo numero: ");
-                                    int numero2Quimico = scanner.nextInt();
-                                    scanner.nextLine();
-                                    quimico.hacerCalculoBasico(numero1Quimico, numero2Quimico);
-                                    break;
-
-                                case 3:
-                                    System.out.println(quimico.estadoSueldo());
-                                    break;
-
-                                case 4:
-                                    System.out.println("Introduce el elemento: ");
-                                    String elemento = scanner.nextLine();
-                                    quimico.anadirElemento(elemento);
-                                    break;
-
-                                case 5:
-                                    quimico.trabajar();
-                                    break;
-
-                                case 6:
-                                    quimico.trabajoDual();
-                                    break;
-
-                                case 7:
-                                    quimico.mostrarElementos();
-                                    break;
-
-                                case 0:
-                                    System.out.println("Volviendo al menu principal.");
-                                    break;
-
-                                default:
-                                    System.out.println("Opcion incorrecta.");
-                                    break;
-                            }
-
-                            System.out.println();
-
-                        } while (opcionQuimico != 0);
+                        menuQuimico(scanner, quimico);
                         break;
 
                     case 0:
@@ -277,5 +71,224 @@ public class App {
         } while (opcionInvestigador != 0);
 
         scanner.close();
+    }
+
+    private static int mostrarMenuPrincipal(Scanner scanner, Investigador[] investigadores) {
+        System.out.println("--- SEDE DE INVESTIGADORES ---");
+        System.out.println("Selecciona un investigador:");
+
+        for (int i = 0; i < investigadores.length; i++) {
+            System.out.println((i + 1) + "º " + investigadores[i].getNombre());
+        }
+
+        System.out.println("0. Salir");
+        System.out.println("Elige una opcion: ");
+        return scanner.nextInt();
+    }
+
+    private static void menuMatematico(Scanner scanner, Matematico matematico) {
+        int opcionMatematico;
+
+        do {
+            System.out.println("--- MENU MATEMATICO ---");
+            System.out.println("1. Identificacion");
+            System.out.println("2. Hacer calculo basico");
+            System.out.println("3. Ver estado del sueldo");
+            System.out.println("4. Multiplicar matriz por un numero");
+            System.out.println("5. Sumar matriz 3x3");
+            System.out.println("6. Mostrar matriz");
+            System.out.println("0. Volver");
+            System.out.println("Elige una opcion: ");
+            opcionMatematico = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcionMatematico) {
+                case 1:
+                    matematico.identificacion();
+                    break;
+
+                case 2:
+                    System.out.println("Introduce el primer numero: ");
+                    int numero1 = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Introduce el segundo numero: ");
+                    int numero2 = scanner.nextInt();
+                    scanner.nextLine();
+                    matematico.hacerCalculoBasico(numero1, numero2);
+                    break;
+
+                case 3:
+                    System.out.println(matematico.estadoSueldo());
+                    break;
+
+                case 4:
+                    System.out.println("Introduce el numero por el que quieres multiplicar la matriz: ");
+                    int multiplicador = scanner.nextInt();
+                    scanner.nextLine();
+                    matematico.trabajar(multiplicador);
+                    break;
+
+                case 5:
+                    int[][] matrizNueva = new int[3][3];
+
+                    for (int i = 0; i < matrizNueva.length; i++) {
+                        for (int j = 0; j < matrizNueva[i].length; j++) {
+                            System.out.println("Introduce el valor de la posicion [" + i + "][" + j + "]: ");
+                            matrizNueva[i][j] = scanner.nextInt();
+                        }
+                    }
+
+                    scanner.nextLine();
+                    matematico.trabajar(matrizNueva);
+                    break;
+
+                case 6:
+                    matematico.mostrarMatriz();
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menu principal.");
+                    break;
+
+                default:
+                    System.out.println("Opcion incorrecta.");
+                    break;
+            }
+
+        } while (opcionMatematico != 0);
+    }
+
+    private static void menuBiologo(Scanner scanner, Biologo biologo) {
+        int opcionBiologo;
+
+        do {
+            System.out.println("--- MENU BIOLOGO ---");
+            System.out.println("1. Identificacion");
+            System.out.println("2. Hacer calculo basico");
+            System.out.println("3. Ver estado del sueldo");
+            System.out.println("4. Anadir especimen");
+            System.out.println("5. Trabajar");
+            System.out.println("6. Trabajo dual");
+            System.out.println("7. Mostrar especimenes");
+            System.out.println("0. Volver");
+            System.out.println("Elige una opcion: ");
+            opcionBiologo = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcionBiologo) {
+                case 1:
+                    biologo.identificacion();
+                    break;
+
+                case 2:
+                    System.out.println("Introduce el primer numero: ");
+                    int numero1Biologo = scanner.nextInt();
+                    System.out.println("Introduce el segundo numero: ");
+                    int numero2Biologo = scanner.nextInt();
+                    scanner.nextLine();
+                    biologo.hacerCalculoBasico(numero1Biologo, numero2Biologo);
+                    break;
+
+                case 3:
+                    System.out.println(biologo.estadoSueldo());
+                    break;
+
+                case 4:
+                    System.out.println("Introduce el especimen: ");
+                    String especimen = scanner.nextLine();
+                    biologo.anadirEspecimen(especimen);
+                    break;
+
+                case 5:
+                    biologo.trabajar();
+                    break;
+
+                case 6:
+                    biologo.trabajoDual();
+                    break;
+
+                case 7:
+                    biologo.mostrarEspecimenes();
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menu principal.");
+                    break;
+
+                default:
+                    System.out.println("Opcion incorrecta.");
+                    break;
+            }
+
+            System.out.println();
+
+        } while (opcionBiologo != 0);
+    }
+
+    private static void menuQuimico(Scanner scanner, Quimico quimico) {
+        int opcionQuimico;
+
+        do {
+            System.out.println("--- MENU QUIMICO ---");
+            System.out.println("1. Identificacion");
+            System.out.println("2. Hacer calculo basico");
+            System.out.println("3. Ver estado del sueldo");
+            System.out.println("4. Anadir elemento");
+            System.out.println("5. Trabajar");
+            System.out.println("6. Trabajo dual");
+            System.out.println("7. Mostrar elementos");
+            System.out.println("0. Volver");
+            System.out.println("Elige una opcion: ");
+            opcionQuimico = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcionQuimico) {
+                case 1:
+                    quimico.identificacion();
+                    break;
+
+                case 2:
+                    System.out.println("Introduce el primer numero: ");
+                    int numero1Quimico = scanner.nextInt();
+                    System.out.println("Introduce el segundo numero: ");
+                    int numero2Quimico = scanner.nextInt();
+                    scanner.nextLine();
+                    quimico.hacerCalculoBasico(numero1Quimico, numero2Quimico);
+                    break;
+
+                case 3:
+                    System.out.println(quimico.estadoSueldo());
+                    break;
+
+                case 4:
+                    System.out.println("Introduce el elemento: ");
+                    String elemento = scanner.nextLine();
+                    quimico.anadirElemento(elemento);
+                    break;
+
+                case 5:
+                    quimico.trabajar();
+                    break;
+
+                case 6:
+                    quimico.trabajoDual();
+                    break;
+
+                case 7:
+                    quimico.mostrarElementos();
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menu principal.");
+                    break;
+
+                default:
+                    System.out.println("Opcion incorrecta.");
+                    break;
+            }
+
+            System.out.println();
+
+        } while (opcionQuimico != 0);
     }
 }
