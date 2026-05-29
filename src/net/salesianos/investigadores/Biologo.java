@@ -18,4 +18,13 @@ public class Biologo extends Investigador {
     public void setEspecimenesInvestigacion(ArrayList<String> especimenesInvestigacion) {
         this.especimenesInvestigacion = especimenesInvestigacion;
     }
+
+    public void anadirEspecimen(String especimen) {
+        if (especimen.trim().isEmpty()) {
+            System.out.println("No se puede anadir un especimen vacio.");
+        } else {
+            especimenesInvestigacion.add(especimen);
+            System.out.println("Especimen anadido: " + especimen);
+        }
+    }
 }
