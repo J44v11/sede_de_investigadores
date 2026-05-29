@@ -27,4 +27,13 @@ public class Biologo extends Investigador {
             System.out.println("Especimen anadido: " + especimen);
         }
     }
+
+    @Override
+    public String estadoSueldo() {
+        if (sueldo < 1500) {
+            return "El biologo necesita un aumento.";
+        } else {
+            return "El sueldo del biologo esta bien.";
+        }
+    }
 }
