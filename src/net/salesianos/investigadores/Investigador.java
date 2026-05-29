@@ -42,9 +42,13 @@ public abstract class Investigador {
         System.out.println("Especialidad: " + especialidad);
         System.out.println("Sueldo: " + sueldo);
     }
-    
+
     public void hacerCalculoBasico(int numero1, int numero2) {
         System.out.println("Suma: " + (numero1 + numero2));
         System.out.println("Resta: " + (numero1 - numero2));
     }
+
+    public abstract String estadoSueldo();
+
+    public abstract void trabajar();
 }
