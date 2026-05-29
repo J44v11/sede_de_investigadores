@@ -190,7 +190,78 @@ public class App {
 
                         } while (opcionBiologo != 0);
                         break;
-                        
+                    
+                    case 3:
+                        int opcionQuimico;
+
+                        do {
+                            System.out.println("--- MENU QUIMICO ---");
+                            System.out.println("1. Identificacion");
+                            System.out.println("2. Hacer calculo basico");
+                            System.out.println("3. Ver estado del sueldo");
+                            System.out.println("4. Anadir elemento");
+                            System.out.println("5. Trabajar");
+                            System.out.println("6. Trabajo dual");
+                            System.out.println("7. Mostrar elementos");
+                            System.out.println("0. Volver");
+                            System.out.println("Elige una opcion: ");
+                            opcionQuimico = scanner.nextInt();
+                            scanner.nextLine();
+
+                            switch (opcionQuimico) {
+                                case 1:
+                                    quimico.identificacion();
+                                    break;
+
+                                case 2:
+                                    System.out.println("Introduce el primer numero: ");
+                                    int numero1Quimico = scanner.nextInt();
+                                    System.out.println("Introduce el segundo numero: ");
+                                    int numero2Quimico = scanner.nextInt();
+                                    scanner.nextLine();
+                                    quimico.hacerCalculoBasico(numero1Quimico, numero2Quimico);
+                                    break;
+
+                                case 3:
+                                    System.out.println(quimico.estadoSueldo());
+                                    break;
+
+                                case 4:
+                                    System.out.println("Introduce el elemento: ");
+                                    String elemento = scanner.nextLine();
+                                    quimico.anadirElemento(elemento);
+                                    break;
+
+                                case 5:
+                                    quimico.trabajar();
+                                    break;
+
+                                case 6:
+                                    quimico.trabajoDual();
+                                    break;
+
+                                case 7:
+                                    quimico.mostrarElementos();
+                                    break;
+
+                                case 0:
+                                    System.out.println("Volviendo al menu principal.");
+                                    break;
+
+                                default:
+                                    System.out.println("Opcion incorrecta.");
+                                    break;
+                            }
+
+                            System.out.println();
+
+                        } while (opcionQuimico != 0);
+                        break;
+
+                    case 0:
+                        System.out.println("Saliendo del programa.");
+                        break;
+
                     default:
                         break;
                 }
