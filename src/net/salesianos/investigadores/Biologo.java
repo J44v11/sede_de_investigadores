@@ -11,4 +11,7 @@ public class Biologo extends Investigador {
         this.especimenesInvestigacion = new ArrayList<>();
     }
     
+     public ArrayList<String> getEspecimenesInvestigacion() {
+        return especimenesInvestigacion;
+    }
 }
