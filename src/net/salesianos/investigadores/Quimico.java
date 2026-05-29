@@ -1,8 +1,9 @@
 package net.salesianos.investigadores;
 
 import java.util.ArrayList;
+import net.salesianos.trabajodual.TrabajoDual;
 
-public class Quimico extends Investigador {
+public class Quimico extends Investigador implements TrabajoDual {
 
     protected ArrayList<String> elementosReaccion;
 
@@ -42,6 +43,30 @@ public class Quimico extends Investigador {
         invertirLista();
         System.out.println("El quimico mezcla los elementos invirtiendo sus posiciones.");
         mostrarElementos();
+    }
+
+   @Override
+    public void trabajoDual() {
+        if (elementosReaccion.size() == 0) {
+            System.out.println("No hay elementos para realizar el trabajo dual.");
+        } else {
+            ordenarPorLongitud();
+            String elementoEliminado = elementosReaccion.remove(elementosReaccion.size() - 1);
+            System.out.println("Trabajo dual del quimico: ordena por longitud y elimina el mayor: " + elementoEliminado);
+            mostrarElementos();
+        }
+    }
+    
+    public void ordenarPorLongitud() {
+        for (int i = 0; i < elementosReaccion.size() - 1; i++) {
+            for (int j = 0; j < elementosReaccion.size() - 1 - i; j++) {
+                if (elementosReaccion.get(j).length() > elementosReaccion.get(j + 1).length()) {
+                    String temporal = elementosReaccion.get(j);
+                    elementosReaccion.set(j, elementosReaccion.get(j + 1));
+                    elementosReaccion.set(j + 1, temporal);
+                }
+            }
+        }
     }
 
     public void invertirLista() {

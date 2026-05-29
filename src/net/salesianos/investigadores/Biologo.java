@@ -1,8 +1,9 @@
 package net.salesianos.investigadores;
 
 import java.util.ArrayList;
+import net.salesianos.trabajodual.TrabajoDual;
 
-public class Biologo extends Investigador {
+public class Biologo extends Investigador implements TrabajoDual {
 
     protected ArrayList<String> especimenesInvestigacion;
 
@@ -49,6 +50,13 @@ public class Biologo extends Investigador {
         }
     }
 
+     @Override
+    public void trabajoDual() {
+        invertirLista();
+        System.out.println("Trabajo dual del biologo: invierte la lista como un quimico.");
+        mostrarEspecimenes();
+    }
+
     public void ordenarPorLongitud() {
         for (int i = 0; i < especimenesInvestigacion.size() - 1; i++) {
             for (int j = 0; j < especimenesInvestigacion.size() - 1 - i; j++) {
@@ -58,6 +66,15 @@ public class Biologo extends Investigador {
                     especimenesInvestigacion.set(j + 1, temporal);
                 }
             }
+        }
+    }
+
+    public void invertirLista() {
+        for (int i = 0; i < especimenesInvestigacion.size() / 2; i++) {
+            String temporal = especimenesInvestigacion.get(i);
+            int ultimaPosicion = especimenesInvestigacion.size() - 1 - i;
+            especimenesInvestigacion.set(i, especimenesInvestigacion.get(ultimaPosicion));
+            especimenesInvestigacion.set(ultimaPosicion, temporal);
         }
     }
 
