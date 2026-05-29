@@ -1,8 +1,9 @@
 package net.salesianos.investigadores;
 
 import java.util.ArrayList;
+import net.salesianos.trabajodual.TrabajoDual;
 
-public class Quimico extends Investigador {
+public class Quimico extends Investigador implements TrabajoDual {
 
     protected ArrayList<String> elementosReaccion;
 
