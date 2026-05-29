@@ -13,4 +13,7 @@ public class Matematico extends Investigador {
         return resultadosActuales;
     }
 
+    public void setResultadosActuales(int[][] resultadosActuales) {
+        this.resultadosActuales = resultadosActuales;
+    }
 }
