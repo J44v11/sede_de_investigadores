@@ -27,4 +27,13 @@ public class Quimico extends Investigador {
             System.out.println("Elemento anadido: " + elemento);
         }
     }
+
+    @Override
+    public String estadoSueldo() {
+        if (sueldo < 1200) {
+            return "El quimico necesita solicitar un aumento.";
+        } else {
+            return "El sueldo del quimico es correcto.";
+        }
+    }
 }
