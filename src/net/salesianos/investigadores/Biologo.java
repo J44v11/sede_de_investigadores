@@ -36,4 +36,40 @@ public class Biologo extends Investigador {
             return "El sueldo del biologo esta bien.";
         }
     }
+
+    @Override
+    public void trabajar() {
+        if (especimenesInvestigacion.size() == 0) {
+            System.out.println("No hay especimenes para investigar.");
+        } else {
+            ordenarPorLongitud();
+            String especimenEliminado = especimenesInvestigacion.remove(especimenesInvestigacion.size() - 1);
+            System.out.println("Lista ordenada por longitud y se ha eliminado el mayor: " + especimenEliminado);
+            mostrarEspecimenes();
+        }
+    }
+
+    public void ordenarPorLongitud() {
+        for (int i = 0; i < especimenesInvestigacion.size() - 1; i++) {
+            for (int j = 0; j < especimenesInvestigacion.size() - 1 - i; j++) {
+                if (especimenesInvestigacion.get(j).length() > especimenesInvestigacion.get(j + 1).length()) {
+                    String temporal = especimenesInvestigacion.get(j);
+                    especimenesInvestigacion.set(j, especimenesInvestigacion.get(j + 1));
+                    especimenesInvestigacion.set(j + 1, temporal);
+                }
+            }
+        }
+    }
+
+    public void mostrarEspecimenes() {
+        if (especimenesInvestigacion.size() == 0) {
+            System.out.println("La lista de especimenes esta vacia.");
+        } else {
+            System.out.println("--- Especimenes en investigacion ---");
+
+            for (int i = 0; i < especimenesInvestigacion.size(); i++) {
+                System.out.println((i + 1) + ". " + especimenesInvestigacion.get(i));
+            }
+        }
+    }
 }
