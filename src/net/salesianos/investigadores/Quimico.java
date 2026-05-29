@@ -11,4 +11,7 @@ public class Quimico extends Investigador {
         this.elementosReaccion = new ArrayList<>();
     }
     
+    public ArrayList<String> getElementosReaccion() {
+        return elementosReaccion;
+    }
 }
