@@ -123,7 +123,74 @@ public class App {
 
                         } while (opcionMatematico != 0);
                         break;
-                
+                    
+                    case 2:
+                        int opcionBiologo;
+
+                        do {
+                            System.out.println("--- MENU BIOLOGO ---");
+                            System.out.println("1. Identificacion");
+                            System.out.println("2. Hacer calculo basico");
+                            System.out.println("3. Ver estado del sueldo");
+                            System.out.println("4. Anadir especimen");
+                            System.out.println("5. Trabajar");
+                            System.out.println("6. Trabajo dual");
+                            System.out.println("7. Mostrar especimenes");
+                            System.out.println("0. Volver");
+                            System.out.println("Elige una opcion: ");
+                            opcionBiologo = scanner.nextInt();
+                            scanner.nextLine();
+
+                            switch (opcionBiologo) {
+                                case 1:
+                                    biologo.identificacion();
+                                    break;
+
+                                case 2:
+                                    System.out.println("Introduce el primer numero: ");
+                                    int numero1Biologo = scanner.nextInt();
+                                    System.out.println("Introduce el segundo numero: ");
+                                    int numero2Biologo = scanner.nextInt();
+                                    scanner.nextLine();
+                                    biologo.hacerCalculoBasico(numero1Biologo, numero2Biologo);
+                                    break;
+
+                                case 3:
+                                    System.out.println(biologo.estadoSueldo());
+                                    break;
+
+                                case 4:
+                                    System.out.println("Introduce el especimen: ");
+                                    String especimen = scanner.nextLine();
+                                    biologo.anadirEspecimen(especimen);
+                                    break;
+
+                                case 5:
+                                    biologo.trabajar();
+                                    break;
+
+                                case 6:
+                                    biologo.trabajoDual();
+                                    break;
+
+                                case 7:
+                                    biologo.mostrarEspecimenes();
+                                    break;
+
+                                case 0:
+                                    System.out.println("Volviendo al menu principal.");
+                                    break;
+
+                                default:
+                                    System.out.println("Opcion incorrecta.");
+                                    break;
+                            }
+
+                            System.out.println();
+
+                        } while (opcionBiologo != 0);
+                        break;
+                        
                     default:
                         break;
                 }
@@ -131,7 +198,7 @@ public class App {
             } catch (InputMismatchException error) {
                 System.out.println("Error: debes introducir un numero correcto.");
                 scanner.nextLine();
-                
+
             } finally {
                 System.out.println("----------------------------------------");
                 System.out.println();
