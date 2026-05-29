@@ -16,4 +16,13 @@ public class Matematico extends Investigador {
     public void setResultadosActuales(int[][] resultadosActuales) {
         this.resultadosActuales = resultadosActuales;
     }
+
+    @Override
+    public String estadoSueldo() {
+        if (sueldo < 1800) {
+            return "El matematico necesita un aumento";
+        } else {
+            return "El sueldo del matematico esta bien";
+        }
+    }
 }
