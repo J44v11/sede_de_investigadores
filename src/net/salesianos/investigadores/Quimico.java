@@ -18,4 +18,13 @@ public class Quimico extends Investigador {
     public void setElementosReaccion(ArrayList<String> elementosReaccion) {
         this.elementosReaccion = elementosReaccion;
     }
+
+    public void anadirElemento(String elemento) {
+        if (elemento.trim().isEmpty()) {
+            System.out.println("No se puede anadir un elemento vacio.");
+        } else {
+            elementosReaccion.add(elemento);
+            System.out.println("Elemento anadido: " + elemento);
+        }
+    }
 }
